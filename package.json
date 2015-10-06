@@ -1,0 +1,32 @@
+{
+  "name": "binder-build",
+  "version": "0.1.0",
+  "description": "build container images from specifications",
+  "main": "index.js",
+  "bin": {
+    "binder-build": "bin.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binder-project/binder-build.git"
+  },
+  "keywords": [
+    "docker",
+    "environment",
+    "data",
+    "analysis",
+    "reproducability"
+  ],
+  "author": "Andrew Osheroff",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/binder-project/binder-build/issues"
+  },
+  "homepage": "https://github.com/binder-project/binder-build#readme",
+  "dependencies": {
+    "subcommand": "^2.0.3"
+  }
+}
