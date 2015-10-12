@@ -17,6 +17,6 @@ module.exports = [
   {
     name: 'version',
     boolean: false,
-    abbr: 'h'
+    abbr: 'v'
   }
 ]

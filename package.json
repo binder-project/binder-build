@@ -7,7 +7,7 @@
     "binder-build": "bin.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/all.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,22 @@
   },
   "homepage": "https://github.com/binder-project/binder-build#readme",
   "dependencies": {
-    "subcommand": "^2.0.3"
+    "adm-zip": "~0.4.7",
+    "async": "^1.4.2",
+    "basic-auth": "^1.0.3",
+    "binder-build-core": "0.0.0",
+    "body-parser": "^1.14.1",
+    "dispatch": "^1.0.0",
+    "express": "^4.13.3",
+    "fs-extra": "^0.24.0",
+    "hat": "^0.0.3",
+    "jsdoc": "~3.3.3",
+    "jsonschema": "~1.0.2",
+    "lodash": "~3.10.1",
+    "nodegit": "^0.5.0",
+    "subcommand": "^2.0.3",
+    "tmp": "0.0.28",
+    "url-parse": "^1.0.4",
+    "urlparse": "0.0.1"
   }
 }
