@@ -30,7 +30,7 @@
     "adm-zip": "~0.4.7",
     "async": "^1.4.2",
     "basic-auth": "^1.0.3",
-    "binder-build-core": "0.0.0",
+    "binder-build-core": "~0.0.0",
     "body-parser": "^1.14.1",
     "dispatch": "^1.0.0",
     "express": "^4.13.3",
@@ -40,8 +40,12 @@
     "jsonschema": "~1.0.2",
     "lodash": "~3.10.1",
     "nodegit": "^0.5.0",
+    "request": "^2.65.0",
+    "string-format": "^0.5.0",
     "subcommand": "^2.0.3",
+    "tarball-extract": "0.0.3",
     "tmp": "0.0.28",
+    "url-join": "0.0.1",
     "url-parse": "^1.0.4",
     "urlparse": "0.0.1"
   }

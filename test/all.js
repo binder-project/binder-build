@@ -4,7 +4,7 @@ tests = [
   require('./test-build.js')
 ]
 
-_.forEach(tests, function (test) {
+_.forEach(_.flatten(tests), function (test) {
   test()
 })
 
