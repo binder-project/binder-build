@@ -1,0 +1,1 @@
+binder-build stop -b <build-server> -a <api-token>

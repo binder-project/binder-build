@@ -1,16 +1,17 @@
 var usage = require('../lib/usage.js')('start.txt')
+var BuildServer = require('../lib/server.js')
 
 module.exports = {
   name: 'start',
-  command: server,
+  command: startServer,
   options: []
 }
 
-function server (args) {
+function startServer (args) {
 
   if (args.help) return usage()
 
-  console.log('starting server')
-  console.log(args)
-
+  var apiKey = args.apiKey
+  var server = new BuildServer(args)
+  server.start()
 }
