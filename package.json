@@ -1,52 +1,42 @@
 {
   "name": "binder-build",
-  "version": "0.1.0",
-  "description": "build container images from specifications",
+  "version": "0.0.1",
+  "description": "A Binder module that constructs Docker images from requirements files and optionally pushes them to a registry",
   "main": "index.js",
-  "bin": {
-    "binder-build": "bin.js"
-  },
   "scripts": {
-    "test": "node test/all.js"
+    "test": "mocha test/all.js",
+    "start": "node start.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/binder-project/binder-build.git"
+    "url": "https://github.com/binder-project/binder-build"
   },
   "keywords": [
-    "docker",
-    "environment",
-    "data",
-    "analysis",
-    "reproducability"
+    "binder",
+    "module",
+    "binder-build"
   ],
-  "author": "Andrew Osheroff",
-  "license": "Apache-2.0",
+  "author": "Andrew Osheroff <andrewosh@gmail.com> (andrewosh.github.io)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/binder-project/binder-build/issues"
   },
-  "homepage": "https://github.com/binder-project/binder-build#readme",
+  "homepage": "https://github.com/binder-project/binder-build",
   "dependencies": {
-    "adm-zip": "~0.4.7",
     "async": "^1.4.2",
-    "basic-auth": "^1.0.3",
     "binder-build-core": "~0.0.0",
-    "body-parser": "^1.14.1",
-    "dispatch": "^1.0.0",
-    "express": "^4.13.3",
+    "binder-db": "^0.0.1",
+    "binder-logging": "^0.0.1",
+    "binder-module": "^0.0.1",
+    "commander": "^2.9.0",
     "fs-extra": "^0.24.0",
-    "hat": "^0.0.3",
-    "jsdoc": "~3.3.3",
+    "inherits": "^2.0.1",
     "jsonschema": "~1.0.2",
-    "lodash": "~3.10.1",
-    "nodegit": "^0.5.0",
-    "request": "^2.65.0",
+    "lodash": "^4.0.1",
+    "request": "^2.67.0",
+    "shelljs": "^0.5.3",
     "string-format": "^0.5.0",
-    "subcommand": "^2.0.3",
     "tarball-extract": "0.0.3",
-    "tmp": "0.0.28",
-    "url-join": "0.0.1",
-    "url-parse": "^1.0.4",
-    "urlparse": "0.0.1"
+    "tmp": "0.0.28"
   }
 }

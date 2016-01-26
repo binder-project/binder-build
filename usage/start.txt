@@ -1,1 +1,0 @@
-binder-build start -b <build-server> -a <api-token>

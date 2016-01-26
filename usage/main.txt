@@ -1,1 +1,0 @@
-binder-build <spec> -b <build-server> -a <api-token>
