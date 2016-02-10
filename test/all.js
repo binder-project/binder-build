@@ -8,11 +8,21 @@ format.extend(String.prototype)
 
 var settings = require('../lib/settings.js')
 var BuildServer = require('../lib/server.js')
-var BuildStatus = require('../lib/build-info.js').BuildStatus
+var BuildInfoSchema = require('../lib/build-info.js')
+var getDatabase = require('binder-db').getDatabase
 
 describe('binder-build', function () {
-  describe('BinderBuild', function () {
+  var BuildInfo
+  var baseUrl = 'http://{0}:{1}'.format(settings.host, settings.port)
+
+  before(function (done) {
+    getDatabase(function (err, conn) {
+      if (err) throw err
+      BuildInfo = conn.model('Build', BuildInfoSchema)
+      done()
+    })
   })
+
   describe('CLI', function () {
     var server, apiKey = null
     var imageName
@@ -28,7 +38,7 @@ describe('binder-build', function () {
 
     it('should correctly start a build', function (done) {
       var options = {
-        url: 'http://localhost:8080/builds',
+        url: baseUrl + '/builds',
         json: {'repo': 'http://www.github.com/rlabbe/kalman-and-bayesian-filters-in-python'},
         headers: {
           'Authorization': apiKey
@@ -37,19 +47,20 @@ describe('binder-build', function () {
       request.post(options, function (err, response, body) {
         if (err) throw err
         assert(typeof body === 'object')
-        assert.notEqual(body.imageName, null)
-        imageName = body.imageName
+        assert.notEqual(body['image-name'], null)
+        imageName = body['image-name']
         done()
       })
     })
 
     it('should correctly query the status of a build', function (done) {
+      this.timeout(60000 * 5)
       var buildStatus = null
 
       var _query = function (cb) {
         setTimeout(function () {
           var options = {
-            url: 'http://localhost:8080/builds/{0}'.format(imageName),
+            url: baseUrl + '/builds/{0}'.format(imageName),
             json: true,
             headers: {
               'Authorization': apiKey
@@ -58,22 +69,22 @@ describe('binder-build', function () {
           request.get(options, function (err, response, body) {
             if (err) return cb(err)
             assert.notEqual(body.imageName, null)
-            assert.notEqual(body.url, null)
-            assert.notEqual(body.state, null)
-            if (body.state) {
-              buildStatus = body.state
+            assert.notEqual(body.repository, null)
+            assert.notEqual(body.status, null)
+            if (body.status) {
+              buildStatus = body.status
             }
             return cb(null)
           })
         }, 500)
       }
       var check = function () {
-        return buildStatus && (buildStatus === BuildStatus.COMPLETED ||
-                               buildStatus === BuildStatus.FAILED)
+        return buildStatus && (buildStatus === 'completed' ||
+                               buildStatus === 'failed')
       }
       async.doUntil(_query, check, function (err) {
         if (err) throw err
-        assert.notEqual(buildStatus, BuildStatus.FAILED)
+        assert.notEqual(buildStatus, 'failed')
         done()
       })
     })

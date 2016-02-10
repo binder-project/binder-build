@@ -1,3 +1,4 @@
 {
-  "name": "binder-build"
+  "host": "localhost",
+  "port": 8082
 }
