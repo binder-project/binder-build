@@ -39,14 +39,14 @@ describe('binder-build', function () {
     it('should correctly start a build', function (done) {
       var options = {
         url: baseUrl + '/builds',
-        json: {'repo': 'http://www.github.com/rlabbe/kalman-and-bayesian-filters-in-python'},
+        json: {'repository': 'http://www.github.com/rlabbe/kalman-and-bayesian-filters-in-python'},
         headers: {
           'Authorization': apiKey
         }
       }
       request.post(options, function (err, response, body) {
         if (err) throw err
-        assert(typeof body === 'object')
+        assert.equal(typeof body, 'object')
         assert.notEqual(body['image-name'], null)
         imageName = body['image-name']
         done()
@@ -68,9 +68,9 @@ describe('binder-build', function () {
           }
           request.get(options, function (err, response, body) {
             if (err) return cb(err)
-            assert.notEqual(body.imageName, null)
-            assert.notEqual(body.repository, null)
-            assert.notEqual(body.status, null)
+            assert.notEqual(body['image-name'], null)
+            assert.notEqual(body['repository'], null)
+            assert.notEqual(body['status'], null)
             if (body.status) {
               buildStatus = body.status
             }
