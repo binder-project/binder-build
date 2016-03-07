@@ -39,7 +39,7 @@ describe('binder-build', function () {
     it('should correctly start a build', function (done) {
       var options = {
         url: baseUrl + '/builds',
-        json: {'repository': 'http://www.github.com/rlabbe/kalman-and-bayesian-filters-in-python'},
+        json: {'repository': 'http://www.github.com/binder-project/example-requirements'},
         headers: {
           'Authorization': apiKey
         }
