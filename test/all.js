@@ -2,6 +2,7 @@ var assert = require('assert')
 
 var _ = require('lodash')
 var request = require('request')
+var urljoin = require('url-join')
 var async = require('async')
 var format = require('string-format')
 format.extend(String.prototype)
@@ -85,6 +86,39 @@ describe('binder-build', function () {
       async.doUntil(_query, check, function (err) {
         if (err) throw err
         assert.notEqual(buildStatus, 'failed')
+        done()
+      })
+    })
+
+    it('should return a registered template for a completed build', function (done) {
+      var opts = {
+        url: urljoin(baseUrl, 'templates', imageName),
+        method: 'GET',
+        headers: {
+          'Authorization': apiKey
+        },
+        json: true
+      }
+      request(opts, function (err, rsp, body) {
+        if (err) throw err
+        assert.equal(body['name'], imageName)
+        done()
+      })
+    })
+
+    it('should throw an error when asked for a nonexistent template', function (done) {
+      var opts = {
+        url: urljoin(baseUrl, 'templates', 'binder-example-requirements-blahblah'),
+        method: 'GET',
+        headers: {
+          'Authorization': apiKey
+        },
+        json: true
+      }
+      request(opts, function (err, rsp, body) {
+        if (err) throw err
+        assert.notEqual(body['name'], imageName)
+        assert.equal(body.type, 'doesNotExist')
         done()
       })
     })
