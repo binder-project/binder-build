@@ -66,9 +66,10 @@ composed of the following endpoints:
 
 #### build
 
-##### authorized endpoints
+-----------------------------
 
-- start a new build
+Start a new build
+
 ```
 POST /builds/repo HTTP 1.1
 Content-Type: application/json
@@ -78,7 +79,7 @@ Authorization: 880df8bbabdf4b48f412208938c220fe
 }
 
 ```
-returns
+*returns*
 ```
 {
   "name": "binder-project-example-requirements",
@@ -89,12 +90,16 @@ returns
 }
 ```
 
-- get the status of all builds
+--------------------------------
+
+Get the status of all builds
 ```
 GET /builds/ HTTP 1.1
 Authorization: 880df8bbabdf4b48f412208938c220fe
 ```
-returns
+
+*returns*
+
 ```
  [
   {
@@ -115,13 +120,15 @@ returns
 ]
 ```
 
-##### unauthorized endpoints
+-------------------------------------
 
-- get the status of a single build
+Get the status of a single build
 ```
 GET /builds/binder-project-example-requirements HTTP 1.1
 ```
-returns
+
+*returns*
+
 ```
 {
   "name": "binder-project-example-requirements",
@@ -134,14 +141,17 @@ returns
 
 #### registry
 
-##### authorized endpoints
+-------------------------------
 
-- get all templates
+Get all templates
+
 ```
 GET /templates/ HTTP 1.1
 Authorization: 880df8bbabdf4b48f412208938c220fe
 ```
-returns
+
+*returns*
+
 ```
 [
   {
@@ -167,13 +177,16 @@ returns
 ]
 ```
 
-##### unauthorized requests
+----------------------------
 
-- get a single template
+Get a single template
+
 ```
 GET /templates/binder-project-example-requirements HTTP 1.1
 ```
-returns
+
+*returns*
+
 ```
 {
   "port": 8888,
@@ -186,6 +199,7 @@ returns
   "services": []
 }
 ```
+---------------------------------------------
 
 ## usage
 
