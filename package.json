@@ -1,6 +1,6 @@
 {
   "name": "binder-build",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Binder module that constructs Docker images from requirements files and optionally pushes them to a registry",
   "main": "index.js",
   "scripts": {
@@ -24,10 +24,11 @@
   "homepage": "https://github.com/binder-project/binder-build",
   "dependencies": {
     "async": "^1.4.2",
-    "binder-build-core": "^1.0.0",
+    "binder-build-core": "^1.0.1",
     "binder-db": "^1.0.0",
     "binder-logging": "^1.0.0",
-    "binder-module": "^1.0.0",
+    "binder-module": "^1.0.1",
+    "binder-utils": "^1.0.0",
     "commander": "^2.9.0",
     "fs-extra": "^0.24.0",
     "inherits": "^2.0.1",
