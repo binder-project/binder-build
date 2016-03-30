@@ -1,6 +1,6 @@
 {
   "name": "binder-build",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Binder module that constructs Docker images from requirements files and optionally pushes them to a registry",
   "main": "index.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "binder-utils": "^1.0.0",
     "commander": "^2.9.0",
     "fs-extra": "^0.24.0",
+    "gunzip-maybe": "^1.3.1",
     "inherits": "^2.0.1",
     "jsonschema": "~1.0.2",
     "lodash": "^4.3.0",
