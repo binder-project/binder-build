@@ -1,4 +1,14 @@
 {
+  "db": {
+    "host": "localhost",
+    "port": 9050
+  },
+  "logging": {
+    "host": "localhost",
+    "logstash": {
+      "port": 8050
+    }
+  },
   "docker": {
     "enabled": true,
     "user": "N/A",
