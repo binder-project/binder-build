@@ -10,11 +10,10 @@ The build server is responsible for converting the contents of GitHub repositori
 sources, into Binder-compatible Docker images and associated runtime information (such as resource
 limits and hardware requirements). To do this, `binder-build` will search for configuration files in
 the repository and will select the most appropriate file to build from based on this prioritization
-(descending order, see (TODO: link) for complete descriptions of all configuration files):
- 1.`.binder.yml`
- 2.`requirements.txt`
- 3.`environment.yml`
- 4.`Dockerfile`
+(listed below in descending order; see (TODO: link) for complete descriptions of all configuration files):
+  1. `requirements.txt`
+  2. `environment.yml`
+  3. `Dockerfile`
 
 Once an image has been constructed from the repo contents, it can optionally be pushed to a Docker
 repository so that it will be accessible from any deployment backends. In our production
@@ -31,9 +30,8 @@ constraints (such as a GPU requirement), need to be stored as additional metadat
 we construct a *template* from an image name and this auxilliary information, and we consider this to
 a fully-deployable environment specification.
 
-Templates are automatically constructed with reasonable defaults when a build is started, and those
-defaults can be overridden inside a `.binder.yml` file. The `template` API provides an interface for
-fetching all templates available for deployment, as well as for fetching a single template.
+Templates are automatically constructed with reasonable defaults when a build is started. The `template` API 
+provides an interface for fetching all templates available for deployment, as well as for fetching a single template.
 
 ### install
 
