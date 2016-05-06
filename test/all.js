@@ -48,8 +48,8 @@ describe('binder-build', function () {
       request.post(options, function (err, response, body) {
         if (err) throw err
         assert.equal(typeof body, 'object')
-        assert.notEqual(body['image-name'], null)
-        imageName = body['image-name']
+        assert.notEqual(body['name'], null)
+        imageName = body['name']
         done()
       })
     })
@@ -69,7 +69,7 @@ describe('binder-build', function () {
           }
           request.get(options, function (err, response, body) {
             if (err) return cb(err)
-            assert.notEqual(body['image-name'], null)
+            assert.notEqual(body['name'], null)
             assert.notEqual(body['repository'], null)
             assert.notEqual(body['status'], null)
             if (body.status) {
